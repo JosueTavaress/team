@@ -46,5 +46,14 @@ services:
       timeout: 10s
       retries: 5
       start_period: 5s
+  web:
+    build:
+      "./"
+    container_name: container_vite_react
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - graphql-engine
 volumes:
   db_data:
