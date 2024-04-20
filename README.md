@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# Instruções de Execução do Projeto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Para rodar este projeto, é necessário ter o Docker instalado na sua máquina.
 
-Currently, two official plugins are available:
+## Passos para Execução:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Certifique-se de ter o Docker instalado na sua máquina. Se não tiver, siga as instruções de instalação em [Docker Installation Guide](https://docs.docker.com/get-docker/).
 
-## Expanding the ESLint configuration
+2. Após a instalação do Docker, abra o terminal ou prompt de comando.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+3. Navegue até o diretório raiz do projeto.
 
-- Configure the top-level `parserOptions` property like this:
+4. Execute o seguinte comando para iniciar os serviços do projeto:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+    ```bash
+    docker-compose up -d
+    ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    Este comando iniciará os contêineres Docker necessários para o projeto.
+
+5. Após a execução bem-sucedida do comando, você pode acessar o frontend da aplicação em [localhost:3001](http://localhost:3001).
+
+6. Além disso, o backend com Hasura está sendo executado na porta 8080 do localhost.
+
+7. Para que os dados sejam salvos corretamente, é necessário configurar o banco de dados. Você precisará entrar no Hasura em [localhost:8080](http://localhost:8080) e criar um schema no banco de dados padrão ('public'). Em seguida, crie uma tabela com o nome 'team' e as seguintes colunas:
+   - 'id' (do tipo UUID)
+   - 'nome' (do tipo texto)
+   - 'url' (do tipo texto)
+
+8. Atualmente, a migração de dados e as seeds estão em andamento (WIP), então essa etapa é necessária para garantir que os dados sejam persistidos corretamente.
+
+9. Para parar os serviços do projeto, você pode executar o seguinte comando:
+
+    ```bash
+    docker-compose down
+    ```
+
+    Isso encerrará os contêineres Docker em execução.
