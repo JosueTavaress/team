@@ -1,3 +1,23 @@
+# TODO
+### Checklist de Desenvolvimento:
+
+- [x] Criar um time de pokémons com 5 pokémons:
+- [x] Listar todos os pokémons da API (por pagina:wip)
+- [x] Desenvolver a lógica para listar todos os pokémons disponíveis na API.
+- [x] Implementar filtros que permitam buscar pokémons por nome
+- [x] O sistema deve ser desenvolvido com Docker e Docker compose:
+- [x] Configurar o ambiente de desenvolvimento utilizando Docker e Docker Compose.
+- [x] Criar um arquivo Docker Compose que inclua todos os serviços necessários para rodar o sistema.
+- [x] Utilizar Hasura com GraphQL para consultar e manipular as informações relacionadas aos pokémons.
+- [x] Para o frontend usar o ViteJS com Typescript
+- [x] Para o banco de dados usar o Postgres
+- [x] Desenvolvimento deve ser totalmente web
+- [ ] Filtrar por tipo
+- [ ] configurar seed iniciais
+- [ ] configurar migration inicial (estrutural)
+- [ ] permitir paginação nos dados retornados da api de todos os pokemons
+
+
 # Instruções de Execução do Projeto
 
 Para rodar este projeto, é necessário ter o Docker instalado na sua máquina.
