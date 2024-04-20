@@ -13,6 +13,7 @@ services:
       - "8080:8080"
     restart: always
     environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       ## postgres database to store Hasura metadata
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
       ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
@@ -30,6 +31,8 @@ services:
     depends_on:
       data-connector-agent:
         condition: service_healthy
+    volumes:
+      - ./migrations:/hasura-migrations
   data-connector-agent:
     image: hasura/graphql-data-connector:v2.38.0
     restart: always
@@ -52,7 +55,7 @@ services:
     container_name: container_vite_react
     restart: always
     ports:
-      - "3000:3000"
+      - "3001:3001"
     volumes:
       - ".:/app"
     depends_on:
