@@ -33,7 +33,7 @@ Para rodar este projeto, é necessário ter o Docker instalado na sua máquina.
 4. Execute o seguinte comando para iniciar os serviços do projeto:
 
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
 
     Este comando iniciará os contêineres Docker necessários para o projeto.
@@ -52,7 +52,7 @@ Para rodar este projeto, é necessário ter o Docker instalado na sua máquina.
 9. Para parar os serviços do projeto, você pode executar o seguinte comando:
 
     ```bash
-    docker-compose down
+    docker compose down -v
     ```
 
     Isso encerrará os contêineres Docker em execução.
